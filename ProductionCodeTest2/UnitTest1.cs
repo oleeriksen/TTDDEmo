@@ -77,5 +77,21 @@ namespace ProductionCodeTest2
             Assert.True(c.X == 14 && c.Y == 3 );
 
         }
+
+        [Theory]
+        [InlineData(2, 3, 5)]
+        [InlineData(2, -3, -1)]
+        public void TestAddGenerel(int x, int y, int res) {
+            //Arrange
+            ISimpleCalculator c = new SimpleCalculator();
+            c.X = x; c.Y = y;
+
+            //Act
+            int actualRes = c.Add;
+
+            //Assert
+            Assert.Equal(res, actualRes);
+
+        }
     }
 }

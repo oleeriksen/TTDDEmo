@@ -16,5 +16,20 @@ namespace ProductionCodeTest
             Assert.AreEqual(14, c.Y);
 
         }
+
+        [DataRow(1, 2, 3)]
+        [DataRow(1, -3, -2)]
+        [DataTestMethod]
+        public void TestAddGenerel(int x, int y, int res) {
+            //Arrange
+            ISimpleCalculator c = new SimpleCalculator();
+            c.X = x; c.Y = y;
+
+            //Act
+            int actualRes = c.Add;
+
+            //Assert
+            Assert.AreEqual(res, actualRes);
+        }
     }
 }
